@@ -27,7 +27,7 @@ import {
 |
 */
 
-class JsonConfigurationSource extends AbstractFileConfigurationSource {
+class JsonConfigurationSource extends AbstractFileConfigurationSource implements ConfigurationSourceInterface {
     public async load(): Promise<{[key: string]: any}> {
         return JSON.parse(await this.readFile());
     }
