@@ -21,6 +21,11 @@
     "exports": {
         ".": "./index.js"
     },
+    "files": [
+        "index.js",
+        "index.d.ts",
+        "lib/"
+    ],
     "scripts": {
         "test": "mocha",
         "test:typescript": "tsd",
