@@ -235,7 +235,7 @@ declare interface ConfigurationBuilderInterface {
  */
 declare enum MergeStrategy {
     MERGE_INDEXED = "MERGE_INDEXED",
-        REPLACE_INDEXED = "REPLACE_INDEXED"
+    REPLACE_INDEXED = "REPLACE_INDEXED"
 }
 
 /**
