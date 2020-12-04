@@ -30,7 +30,7 @@
     "scripts": {
         "test": "mocha",
         "test:typescript": "tsd",
-        "cover": "c8 npm test"
+        "test:cover": "c8 npm test"
     },
     "engines": {
         "node": ">=14.5"
