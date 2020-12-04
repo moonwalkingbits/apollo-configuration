@@ -175,7 +175,9 @@ declare class ObjectConfigurationSource implements ConfigurationSourceInterface 
     public constructor(settings: {[key: string]: any});
 
     /**
-     * @inheritdoc
+     * Provide the configuration source settings.
+     *
+     * @return Configuration settings.
      */
     public load(): Promise<{[key: string]: any}>;
 }
