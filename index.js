@@ -8,5 +8,6 @@
 export { default as AbstractFileConfigurationSource } from "./lib/AbstractFileConfigurationSource.js";
 export { default as Configuration } from "./lib/Configuration.js";
 export { default as ConfigurationBuilder } from "./lib/ConfigurationBuilder.js";
+export { default as JsonConfigurationSource } from "./lib/JsonConfigurationSource.js";
 export { default as MergeStrategy } from "./lib/MergeStrategy.js";
 export { default as ObjectConfigurationSource } from "./lib/ObjectConfigurationSource.js";

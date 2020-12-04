@@ -14,6 +14,7 @@ import {
     ConfigurationBuilderInterface,
     ConfigurationInterface,
     ConfigurationSourceInterface,
+    JsonConfigurationSource,
     MergeStrategy,
     ObjectConfigurationSource
 } from ".";
@@ -27,16 +28,16 @@ import {
 |
 */
 
-class JsonConfigurationSource extends AbstractFileConfigurationSource implements ConfigurationSourceInterface {
+class SomeFileConfigurationSource extends AbstractFileConfigurationSource implements ConfigurationSourceInterface {
     public async load(): Promise<{[key: string]: any}> {
         return JSON.parse(await this.readFile());
     }
 }
 
-const jsonConfigurationSource = new JsonConfigurationSource("config.json");
+const someFileConfigurationSource = new SomeFileConfigurationSource("config.txt");
 
-expectAssignable<ConfigurationSourceInterface>(jsonConfigurationSource);
-expectType<{[key: string]: any}>(await jsonConfigurationSource.load());
+expectAssignable<ConfigurationSourceInterface>(someFileConfigurationSource);
+expectType<{[key: string]: any}>(await someFileConfigurationSource.load());
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,20 @@ const objectConfigurationSource = new ObjectConfigurationSource({});
 
 expectAssignable<ConfigurationSourceInterface>(objectConfigurationSource);
 expectType<{[key: string]: any}>(await objectConfigurationSource.load());
+
+/*
+|--------------------------------------------------------------------------
+| JsonConfigurationSource
+|--------------------------------------------------------------------------
+|
+| These tests ensures the API of the JSON configuration source.
+|
+*/
+
+const jsonConfigurationSource = new JsonConfigurationSource("config.json");
+
+expectAssignable<ConfigurationSourceInterface>(jsonConfigurationSource);
+expectType<{[key: string]: any}>(await jsonConfigurationSource.load());
 
 /*
 |--------------------------------------------------------------------------

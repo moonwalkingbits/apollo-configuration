@@ -203,6 +203,18 @@ declare abstract class AbstractFileConfigurationSource {
 }
 
 /**
+ * A JSON file configuration source.
+ */
+declare class JsonConfigurationSource extends AbstractFileConfigurationSource implements ConfigurationSourceInterface {
+    /**
+     * Provide the configuration source settings.
+     *
+     * @return Configuration settings.
+     */
+    public load(): Promise<{[key: string]: any}>;
+}
+
+/**
  * The configuration builder provides a simple and very extendible way of
  * creating configuration objects.
  *
@@ -288,6 +300,7 @@ export {
     ConfigurationBuilderInterface,
     ConfigurationInterface,
     ConfigurationSourceInterface,
+    JsonConfigurationSource,
     MergeStrategy,
     ObjectConfigurationSource
 };
