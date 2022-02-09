@@ -49,6 +49,13 @@ describe("Configuration", () => {
 
             expect(configuration.all()).to.have.nested.property("nested.key", "value");
         });
+
+        it("should not throw if key path is longer than currently exists", () => {
+            configuration.set("nested", null);
+            configuration.set("nested.key", "value");
+
+            expect(configuration.all()).to.have.nested.property("nested.key", "value");
+        });
     });
 
     describe("#clear", () => {
@@ -78,7 +85,7 @@ describe("Configuration", () => {
         });
 
         it("should not throw if key path is longer than object when checking key path", () => {
-            configuration.set("key", "value");
+            configuration.set("key", null);
 
             expect(configuration.has("key.nested.key")).to.be.false;
         });
@@ -98,7 +105,7 @@ describe("Configuration", () => {
         });
 
         it("should not throw if key path is longer than object when retrieving value", () => {
-            configuration.set("key", "value");
+            configuration.set("key", null);
 
             expect(configuration.get("key.nested.key")).to.be.null;
         });
@@ -132,6 +139,7 @@ describe("Configuration", () => {
         });
 
         it("should not throw if nested key path is not found when removing value", () => {
+            configuration.set("nested", null);
             configuration.remove("nested.key");
         });
     });
